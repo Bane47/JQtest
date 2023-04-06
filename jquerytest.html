@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#form1").validate({
+       rules:{
+        'name':{
+            required:true,
+            minlength:8,
+            maxlength:15,
+            pattern:/[a-zA-Z]/
+        },
+        'password':{
+            required:true,
+            minlength:8,
+            maxlength:15,
+            pattern:/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/
+            
+
+        },
+        'email':{
+            required:true,
+            
+            pattern:/^[\w]+@+g2tsolutions+[\.]+com+$/
+        },
+       
+        'phone':{
+            required:true,
+            minlength:10,
+            maxlength:10,
+            pattern:/[0-9]/
+        }
+    
+        
+    },
+    messages:{
+        'name':{
+            required:'This field is required',
+        },
+        'password':{
+            required:'This field is required',
+            minlength:'Password should contain atleast 8 characters',
+            maxlength:'Password index out of bound',
+            pattern:'contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.'
+
+        },
+        'email':{
+            required:'This field is required',
+            pattern:'Invalid format'
+        },
+        'phone':{
+            required:"This field is mandatory",
+           
+            pattern:'The phone number should be in this pattern XXX-XXX-XXXX'
+        }
+    }
+    
+    })
+})
+
+</script>
+
+
+</head>
+<body>
+<!-- 1. To check a password between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one
+numeric digit, and one special character.
+2. Phone number validation format 10-digit mobile number.
+3. email validation for @g2tsolutions.com -->
+
+
+    <h2>Registration form</h2>
+    <form action="" id="form1">
+<label for="name">Username: </label>
+<input type="text" id="name" name="name"><br><br>
+<label for="password">Password: </label>
+<input type="text" id="password" name="password"><br><br>
+<label for="email">Email: </label>
+<input type="text" id="email" name="email"><br><br>
+<label for="phone">Phone:</label>
+<input type="text" name="phone" id="phone">
+<br><br>
+<button type="submit">Submit</button>
+
+
+    </form>
+    
+</body>
+</html>
+
+
+
+

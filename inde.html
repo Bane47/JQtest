@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
+    </head>
+        <body>
+        
+    
+        <form id="form1" action="">
+            <h1>REGISTRATION FORM</h1>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password"><br><br>
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone"><br><br>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email"><br><br>
+            <button type="submit">SUBMIT</button>
+        </form>
+        <script>
+            $(document).ready(function() {
+                $("#form1").validate({
+                    rules:{
+                        'name':{
+                            required: true,
+                            minlength: 2,
+                            maxlength: 20,
+                            pattern: /[a-zA-z]/
+                        },
+                        'password': {
+                            required: true,
+                            minlength: 8,
+                            maxlength: 16,
+                            pattern: /^[a-z][A-Z][0-9][!$@\.#]$/
+                        },
+                        'phone': {
+                            required: true,
+                            pattern: /^[0-9]{4}-[0-9]{3}-[0-9]{4}$/
+                        },
+                        'email': {
+                            required: true,
+                            pattern: /^[a-zA-z_\.]+@[`g2techsoft.com`]$/
+                        }
+                    },
+                    messages: {
+                        'name': {
+                            required: 'The field is required',
+                            minlength: 'name is too short',
+                            maxlength: 'name should not exceed 20 char',
+                            pattern: 'Invalid name'
+                        },
+                        'password': {
+                            required: 'The field is required',
+                            minlength: 'enter atleast 8 character',
+                            maxlength: 'password too long',
+                            pattern: 'pwd must contain an upper case,lower case,spl char &digit'
+                        },
+                        'phone': {
+                            required: 'The field is required',
+                            pattern: 'enter in this format 4-3-4'
+                        },
+                        'email': {
+                            required: 'The field is required',
+                            pattern: 'the email should end with g2techsoft.com'
+                        }
+    
+                    }
+                });
+            })
+        </script>
+    
+    </body>
+</html>
+
+
+
+
